@@ -10,12 +10,13 @@ on:
 
 jobs:
   build:
-    runs-on: arm/ubuntu-20.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
           submodules: true
+          architecture: arm
       - name: Compile
         run: make deb -j16
       - name: Archive ld64
